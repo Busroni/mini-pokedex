@@ -11,3 +11,15 @@ export const fetchPokemonSpecies = async () => {
     throw error;
   }
 };
+
+
+// Fungsi untuk mengambil detail Pokémon berdasarkan ID atau nama
+export const fetchPokemonDetail = async (pokemonIdOrName) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/pokemon/${pokemonIdOrName}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching Pokémon detail for ${pokemonIdOrName}:`, error);
+    throw error;
+  }
+};
