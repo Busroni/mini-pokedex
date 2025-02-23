@@ -3,11 +3,12 @@ import axios from "axios";
 const API_BASE_URL = "https://pokeapi.co/api/v2";
 
 // Fungsi untuk mengambil daftar Pokémon dengan paginasi
-export const fetchPokemons = async (offset = 0, limit = 20) => {
+export const fetchPokemons = async (offset = 0, limit = 40) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/pokemon-form`, {
+    const response = await axios.get(`${API_BASE_URL}/pokemon`, {
       params: { offset, limit },
     });
+    console.log(response.data)
     return response.data; // Mengembalikan data hasil API
   } catch (error) {
     console.error("Error fetching Pokémon list:", error);

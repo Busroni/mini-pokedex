@@ -11,7 +11,7 @@ class Home extends Component {
       data: [],
       count: 0,
       offset: 0,
-      limit: 20,
+      limit: 40,
     };
   }
 
