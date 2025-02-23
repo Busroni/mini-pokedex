@@ -4,16 +4,19 @@ class PokePaging extends React.Component {
   handlePageClick = (pageNumber) => {
     const { limit, setOffset } = this.props;
     setOffset((pageNumber - 1) * limit);
+    window.scrollTo(0, 0);
   };
 
   handlePrevious = () => {
     const { offset, limit, setOffset } = this.props;
     setOffset(Math.max(0, offset - limit));
+    window.scrollTo(0, 0);
   };
 
   handleNext = () => {
     const { offset, limit, count, setOffset } = this.props;
     setOffset(Math.min(count - limit, offset + limit));
+    window.scrollTo(0, 0);
   };
 
   render() {
