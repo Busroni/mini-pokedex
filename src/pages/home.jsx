@@ -45,6 +45,9 @@ class Home extends Component {
   render() {
     return (
       <div>
+      <div className="bg-slate-700 p-5 rounded-lg text-center text-white font-black text-2xl mb-5">
+        Pokemon Species
+      </div>
 
         <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
           {this.state.data.map((pokemon, index) => (
