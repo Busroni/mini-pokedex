@@ -15,6 +15,7 @@ const Detail = ({ pokemonId }) => {
     };
 
     getPokemonDetail();
+  }, [pokemonId]);
 
   if (!pokemon) return <p>Loading...</p>;
 

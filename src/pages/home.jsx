@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { fetchPokemons } from "../services/api";
 import PokeCard from "../components/PokeCard";
 import PokePaging from "../components/PokePaging";
-import SearchBar from "../components/SearchBar";
+
 
 class Home extends Component {
   constructor(props) {
