@@ -46,7 +46,10 @@ const SearchBar = () => {
             <li
               key={index}
               className="p-2 hover:bg-orange-600 hover:text-white hover:rounded-lg cursor-pointer"
-              onClick={() => setQuery(pokemon.name)}
+              onClick={() => {
+                setQuery(pokemon.name);
+                window.location.href = `/Pokemon/${pokemon.name}`; // Redirect otomatis
+              }}
             >
               {pokemon.name}
             </li>
