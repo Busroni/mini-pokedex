@@ -16,4 +16,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 // Render SearchBar ke #search-container
 ReactDOM.createRoot(document.getElementById("search-container")).render(<SearchBar />);
-ReactDOM.createRoot(document.getElementById("footer")).render(<Footer />);
+if (window.location.pathname === "/") {
+  ReactDOM.createRoot(document.getElementById("footer")).render(<Footer />);
+}
