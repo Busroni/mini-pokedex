@@ -7,7 +7,7 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/Pokemon/:name" element={<Details />} />
+      <Route path="/pokemon/:name" element={<Details />} />
     </Routes>
   );
 };
