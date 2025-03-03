@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchPokemonDetail } from "../services/api";
+import { getColor } from "../services/data";
 
 
 const Detail = ({ pokemonId }) => {
@@ -48,31 +49,31 @@ const Detail = ({ pokemonId }) => {
         <p>Official Shiny Artwork</p>
       </div>
     </div>
+    
     <div className="p-10 bg-slate-700 mt-3 rounded-lg text-white">
-      <h1 className="text-4xl font-bold text-orange-300 mb-5">Stat Pokemon</h1>
-      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      <h1 className="text-4xl font-bold text-orange-300 mb-2">Stat Pokemon</h1>
+      <p className="mb-2 text-amber-500  text-2xl font-bold font-mono">
           Base Experience: {pokemon.base_experience}
         </p>
-        <p>
-          
+        <div>
           {pokemon.types.map((item, index) => (
             <span
               key={index}
-              className={`text-white rounded-lg px-3 py-1 mr-2 ${typeColor[item.type.name]}`}
+              className={`text-white rounded-lg px-3 py-1 mr-2 ${getColor(item.type.name)}`}
             >
               {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
             </span>
           ))}
-        </p>
-        <p>
+        </div>
+        <div>
           {pokemon.stats.map((item, index) => (
               <p key={index}>
                 {item.stat.name.charAt(0).toUpperCase() + item.stat.name.slice(1)} : {item.base_stat}
               </p>
             ))}
-        </p>
+        </div>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Height: {pokemon.height} | Weight: {pokemon.weight}
+          Height: {pokemon.height*10} CM | Weight: {pokemon.weight*0.1} KG
         </p>
     </div>
     </div>
