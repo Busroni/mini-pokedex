@@ -28,35 +28,21 @@ export const fetchPokemonDetail = async (pokemonIdOrName) => {
 };
 
 // Fungsi untuk mengambil spesies Pokémon
-export const fetchPokemonSpecies = async () => {
+export const fetchPokemonSpecies = async (pokemonIdOrName) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/pokemon-species`);
+    const response = await axios.get(`${API_BASE_URL}/pokemon-species/${pokemonIdOrName}`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching Pokémon species:", error);
+    console.error(`Error fetching Pokémon species for ${pokemonIdOrName}:`, error);
     throw error;
   }
 };
 
-export const typeColor = {
-  normal: "bg-gray-400",
-  fire: "bg-red-500",
-  water: "bg-blue-500",
-  electric: "bg-yellow-400",
-  grass: "bg-green-500",
-  ice: "bg-cyan-300",
-  fighting: "bg-orange-700",
-  poison: "bg-purple-500",
-  ground: "bg-yellow-700",
-  flying: "bg-indigo-400",
-  psychic: "bg-pink-500",
-  bug: "bg-lime-500",
-  rock: "bg-yellow-800",
-  ghost: "bg-indigo-700",
-  dragon: "bg-purple-700",
-  dark: "bg-gray-700",
-  steel: "bg-gray-500",
-  fairy: "bg-pink-300",
+export const getEvolution = async (url) => {
+  try {
+    const res = await axios.get(url);
+    return res.data;
+  } catch (error) {
+    console.log("Evolution Error:", error);
+  }
 };
-
-export const getColor = (type) => typeColor[type]
