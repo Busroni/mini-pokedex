@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchPokemonDetail } from "../services/api";
+import { getColor } from "../services/data";
 
 const PokeCard = ({ pokemonId }) => {
   const [pokemon, setPokemon] = useState(null);
@@ -26,14 +27,22 @@ const PokeCard = ({ pokemonId }) => {
         src={pokemon.sprites?.front_default}
         alt={pokemon.name}
       />
+      <p className="mb-2 text-white">  
+        {pokemon.types.map((item, index) => (
+                    <span
+                      key={index}
+                      className={`text-white rounded-lg px-3 py-1 mr-2 ${getColor(item.type.name)}`}
+                    >
+                      {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
+                    </span>
+                  ))}
+      </p>
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {pokemon.name.toUpperCase()}
       </h5>
+      
       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
         Base Experience: {pokemon.base_experience}
-      </p>
-      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-        Height: {pokemon.height} | Weight: {pokemon.weight}
       </p>
       <a
         href={`/pokemon/${pokemon.name}`}
