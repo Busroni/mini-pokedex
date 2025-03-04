@@ -49,7 +49,7 @@ class Home extends Component {
         Pokemon Species
       </div>
 
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-2 hover:cursor-pointer h">
           {this.state.data.map((pokemon, index) => (
             <PokeCard key={index} pokemonId={pokemon.name} />
           ))}
