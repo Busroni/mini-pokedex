@@ -46,3 +46,8 @@ export const getEvolution = async (url) => {
     console.log("Evolution Error:", error);
   }
 };
+
+const getEvolutionImage = async (name) => {
+  const detail = await fetchPokemonDetail(name);
+  return detail.sprites.other["official-artwork"].front_default;
+};
