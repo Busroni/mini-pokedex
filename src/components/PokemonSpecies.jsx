@@ -86,16 +86,20 @@ const PokemonSpecies = ({ pokemonId }) => {
 
       <h3 className="text-lg font-semibold">Evolution Chain:</h3>
 
-      <div className="items-center text-center grid grid-cols-1 md:grid-cols-3 gap-3 mt-2">
+      <div className="items-center text-center grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
         {evolution.map((name, index) => (
-          <div key={index} className="bg-orange-600 text-white p-2 rounded-lg">
+          <div key={index} className="bg-slate-600 text-white text-2xl font-semibold p-2 rounded-lg hover:cursor-pointer hover:bg-orange-600 hover:scale-105 transition-all duration-300 ease-in-out shadow-md hover:shadow-xl">
             {name.toUpperCase()}
             {evolutionImages[name] ? (
-              <img
-                className="rounded-t-lg w-full"
+              <a href={`/pokemon/${name}`}>
+                <img
+                className="rounded-t-lg w-full hover:opacity-90 transition-all duration-300 ease-in-out"
                 src={evolutionImages[name]}
                 alt={name}
+                href={`/pokemon/${name}`}
               />
+              </a>
+              
             ) : (
               <p>Loading Image...</p>
             )}
