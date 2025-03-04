@@ -21,12 +21,20 @@ const PokeCard = ({ pokemonId }) => {
   if (!pokemon) return <p>Loading...</p>;
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-5">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-5 
+    hover:bg-slate-900 hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out hover:border-orange-600 relative">
+      <div className="absolute text-center text-8xl text-slate-400 font-mono font-black w-full h-full flex   opacity-20 z-0 top-0.5">
+        #{pokemon.id}
+      </div>
+      <a href={`/pokemon/${pokemon.name}`} className="relative">
+      
       <img
-        className="rounded-t-lg w-full"
+        className="rounded-t-lg w-full hover:opacity-90 transition-all duration-300 ease-in-out"
         src={pokemon.sprites?.front_default}
         alt={pokemon.name}
       />
+      
+      </a>
       <p className="mb-2 text-white">  
         {pokemon.types.map((item, index) => (
                     <span
