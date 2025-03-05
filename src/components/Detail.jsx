@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EffectDetails from "./EffectDetail";
 import { fetchPokemonDetail } from "../services/api";
 import { getColor } from "../services/data";
 
@@ -55,7 +56,7 @@ const Detail = ({ pokemonId }) => {
           {pokemon.types.map((item, index) => (
                 <span
                   key={index}
-                  className={`text-white text-2xl rounded-lg px-3 py-1 mr-2 ml-3 ${getColor(item.type.name)}`}
+                  className={`text-white text-2xl rounded-lg px-1 py-1 mr-2 ml-2  ${getColor(item.type.name)} md:text-2xl text-sm md:px-3`}
                 >
                   {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
                 </span>
@@ -64,7 +65,7 @@ const Detail = ({ pokemonId }) => {
       <p className="mb-2 text-amber-300  text-2xl font-bold font-mono">
           Base Experience: {pokemon.base_experience}
       </p>
-      <div className="grid grid-cols-3 gap-7">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
   <div>
     {pokemon.stats.map((item, index) => (
       <div key={index}>
@@ -84,8 +85,14 @@ const Detail = ({ pokemonId }) => {
     <div>Weight<p className="text-6xl text-amber-50 font-bold">{pokemon.weight * 0.1} KG</p></div>
     
   </div>
-  <div className="text-gray-700 dark:text-gray-400 text-center flex items-center justify-center">
-    Weight: {pokemon.weight * 0.1} KG
+  <div className="text-xl font-bold text-center text-blue-100 dark:text-white grid grid-cols-1 md:grid-cols-2 gap-4 p-2 border border-blue-100 rounded-lg">
+  <div className="col-span-2 text-2xl text-orange-100">Abilities</div>
+      {pokemon.abilities.map((ability, index) => (
+        <div key={index} className="p-4 bg-gray-700 rounded-lg font-medium shadow-md text-white">
+          <div className="text-lg font-semibold capitalize">{ability.ability.name}</div>
+          <EffectDetails url={ability.ability.url} />
+        </div>
+      ))}
   </div>
 </div>
 

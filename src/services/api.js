@@ -38,6 +38,20 @@ export const fetchPokemonSpecies = async (pokemonIdOrName) => {
   }
 };
 
+export const fetchEffect = async (url) => {
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    const englishEffect = data.effect_entries.find(entry => entry.language.name === "en");
+    return englishEffect ? englishEffect.effect : "Effect not available";
+  } catch (error) {
+    console.error("Failed to fetch ability effect:", error);
+    throw error;
+  }
+};
+
+
+
 export const getEvolution = async (url) => {
   try {
     const res = await axios.get(url);
