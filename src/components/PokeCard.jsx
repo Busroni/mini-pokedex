@@ -39,13 +39,13 @@ const PokeCard = ({ pokemonId }) => {
         {pokemon.types.map((item, index) => (
                     <span
                       key={index}
-                      className={`text-white rounded-lg px-3 py-1 mr-2 ${getColor(item.type.name)}`}
+                      className={`text-white rounded-lg px-3 text-xs md:text-l py-1 mr-2 ${getColor(item.type.name)}`}
                     >
                       {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
                     </span>
                   ))}
       </p>
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {pokemon.name.toUpperCase()}
       </h5>
       

@@ -85,15 +85,22 @@ const Detail = ({ pokemonId }) => {
     <div>Weight<p className="text-6xl text-amber-50 font-bold">{pokemon.weight * 0.1} KG</p></div>
     
   </div>
-  <div className="text-xl font-bold text-center text-blue-100 dark:text-white grid grid-cols-1 md:grid-cols-2 gap-4 p-2 border border-blue-100 rounded-lg">
-  <div className="col-span-2 text-2xl text-orange-100">Abilities</div>
-      {pokemon.abilities.map((ability, index) => (
-        <div key={index} className="p-4 bg-gray-700 rounded-lg font-medium shadow-md text-white">
-          <div className="text-lg font-semibold capitalize">{ability.ability.name}</div>
+  <div>
+    <div className="col-span-2 text-2xl font-bold items-center text-center text-orange-100 uppercase">Abilities</div>
+  <div className="text-xl font-bold text-center text-blue-100 dark:text-white grid grid-cols-1 md:grid-cols-2 gap-4 p-2 border border-slate-700 rounded-lg overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-700 scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+  <div className="flex space-x-4">
+    {pokemon.abilities.map((ability, index) => (
+      <div key={index} className="p-4 bg-gray-600 rounded-lg font-medium shadow-md text-white w-64 min-w-[250px]">
+        <div className="text-lg font-semibold capitalize mb-2">{ability.ability.name}</div>
+        <div className="overflow-y-auto max-h-32 p-2 border border-gray-600 rounded-lg whitespace-normal scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-gray-800 scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
           <EffectDetails url={ability.ability.url} />
         </div>
-      ))}
+      </div>
+    ))}
   </div>
+</div>
+</div>
+
 </div>
 
     </div>
