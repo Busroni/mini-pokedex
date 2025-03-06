@@ -18,7 +18,7 @@ const EffectDetails = ({ url }) => {
       getEffect();
     }, [url]);
   
-    return <div className="text-sm text-gray-400">{effect}</div>;
+    return <div className="text-sm text-gray-200">{effect}</div>;
   };
 
   export default EffectDetails;
