@@ -25,7 +25,7 @@ const SearchBar = () => {
   }, [query]);
 
   return (
-    <div className="relative w-72">
+    <div className="relative w-72 z-0">
       {/* Input Search */}
       <input
         type="text"
