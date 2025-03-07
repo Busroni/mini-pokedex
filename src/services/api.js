@@ -50,8 +50,6 @@ export const fetchEffect = async (url) => {
   }
 };
 
-
-
 export const getEvolution = async (url) => {
   try {
     const res = await axios.get(url);
@@ -59,9 +57,4 @@ export const getEvolution = async (url) => {
   } catch (error) {
     console.log("Evolution Error:", error);
   }
-};
-
-const getEvolutionImage = async (name) => {
-  const detail = await fetchPokemonDetail(name);
-  return detail.sprites.other["official-artwork"].front_default;
 };
