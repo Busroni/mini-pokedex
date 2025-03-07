@@ -76,7 +76,7 @@ const PokemonSpecies = ({ pokemonId }) => {
     }
   }, [evolution]);
 
-  if (!pokemon || !pokemons) return <p>Loading...</p>;
+  if (!pokemon || !pokemons) return <p></p>;
 
   return (
     <div className="mt-3 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 text-white p-10">
